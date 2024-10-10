@@ -18,3 +18,7 @@ plus10 <- times3 + 10 #Added 10
 plus10 #test
 final <- plus10[c(TRUE, FALSE, TRUE, FALSE)] #Every other number is true false, so it keeps first number and ignores second
 final  #test
+
+#How to combine vectors -> cbind(hw2, hw2, hw2 + hw2)
+#cbind(hw2, plus10, hw2 + plus10)
+#mean(hw2, na.rm = TRUE)
