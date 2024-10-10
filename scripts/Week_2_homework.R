@@ -4,7 +4,8 @@ hw2 <- replace(hw2, c(4,12,22,27), NA)
 hw2
 ?remove
 ?is
-prob1 <- hw2[!is.na(hw2)] #removed the na arguments
+prob1 <- hw2[!is.na(hw2)] #removed the na arguments ! means is not whatever value is that comes after
+#Can also use hw2[complete.cases(hw2)]
 prob1
 times3 <- prob1 * 3
 times3
