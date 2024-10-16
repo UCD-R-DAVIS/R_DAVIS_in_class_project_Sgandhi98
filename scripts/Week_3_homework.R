@@ -8,7 +8,7 @@ surveys_base$plot_type <- factor(surveys_base$plot_type)
 surveys_base #Species_id and plot_id now factors
 surveys_base <- surveys_base[!is.na(surveys_base)] #removed NAs
 surveys_base
-<<<<<<< HEAD
+
 challenge_base <- surveys_base[surveys_base[, 2]>150,]
 #Retrying order? 
 surveys <- read.csv("data/portal_data_joined.csv")
@@ -21,5 +21,4 @@ surveys_base$species_id <- factor(surveys_base$species_id)
 surveys_base$plot_type <- factor(surveys_base$plot_type)
 surveys_base
 challenge_base <- surveys_base[surveys_base[,2]>150,]
-=======
->>>>>>> 40c1c3da8af7c5189a000eeb67dfecd104c4af55
+
