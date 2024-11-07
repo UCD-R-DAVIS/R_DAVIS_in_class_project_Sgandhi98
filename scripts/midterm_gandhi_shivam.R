@@ -22,5 +22,9 @@ running_only %>%
   ))
 
 running_only  
-summarise(running_only) #I don't think its working? 
-summarise(running_only$pace)
+
+running_only %>% group_by(form, pace) %>% #Not recognizing columns form and pace
+  summarize(avg_spm = mean(steps_per_minute)) %>%
+  pivot_wider(id_cols = form,values_from = avg_spm,names_from = pace_cat) %>%
+  select(form,slow,medium,fast)
+
