@@ -95,3 +95,14 @@ avgGDP(cntry = "United States", yr.range = 1980:1995)
 
 # Challenge ---------------------------------------------------------------
 # Write a new function that takes two arguments, the gapminder data.frame (d) and the name of a country (e.g. "Afghanistan"), and plots a time series of the country’s population. The return value from the function should be a ggplot object. Note: It is often easier to modify existing code than to start from scratch. To start out with one plot for a particular country, figured out what you need to change for each iteration (these will be your arguments), and then wrap it in a function.
+avgPOP <- function(cntry){
+df <- gapminder %>% 
+  select(country, year, pop) %>% 
+  filter(country == cntry) %>% 
+  ggplot(aes(x = year, y = population)) +
+  geom_point()
+  return(df)
+}
+avgPOP("Afghanistan")
+avgPOP(name = "Afghanistan", yr.range = 1980:1990)
+
