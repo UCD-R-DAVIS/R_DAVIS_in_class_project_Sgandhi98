@@ -5,8 +5,8 @@ surveys <- read.csv("data/portal_data_joined.csv")
 taxa <- unique(surveys$taxon)
 
 # Find the longest species name for each taxon
-for (taxon in taxa) {
-  subset <- surveys[surveys$taxon == taxon, ]
+for (taxon in taxa) { #Could write for(i in unique(surveys$taxa))
+  subset <- surveys[surveys$taxon == taxon, ] #myspecies <- unique(mytaxon$species)
   longest_species <- subset$species[which.max(nchar(subset$species))]
   cat("Taxon:", taxon, "- Longest Species Name:", longest_species, "\n")
 }
@@ -28,3 +28,15 @@ mloa <- mloa %>%
     temp_F_10m = C_to_F(temp_C_10m),
     temp_F_towertop = C_to_F(temp_C_towertop)
   )
+
+#Bonus using map_df
+
+newmloa <- mloa %>% select("temp_C_2m",
+                           "temp_c_10m",
+                           "temp_C_towertop") %>% 
+  map_df(., C_to_F) %>% rename("temp_F_2m" = "temp_C_2m",
+                               "temp_F_10m" = "temp_C_10m",
+                               "temp_F_towertop" = "temp_C_towertop") %>% 
+  bind_cols(mloa)
+
+
